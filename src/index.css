@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #0f1b2d;
+  --muted: #566074;
+  --line: #d9dee7;
+  --accent: #2b50e6;
+  --accent-ink: #ffffff;
+  --accent-soft: #e6ecff;
+}
+.dark {
+  --bg: #0d1420;
+  --surface: #141d2c;
+  --ink: #e8ecf4;
+  --muted: #9aa5ba;
+  --line: #26334a;
+  --accent: #86a1ff;
+  --accent-ink: #0d1420;
+  --accent-soft: #1b2745;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
+}
+
+.hero-bg {
+  background:
+    radial-gradient(40rem 22rem at 85% -5%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+    radial-gradient(color-mix(in srgb, var(--ink) 14%, transparent) 1px, transparent 1px) 0 0 / 22px 22px;
+  mask-image: linear-gradient(to bottom, #000 70%, transparent);
+}
+.mark { background: linear-gradient(transparent 62%, var(--accent-soft) 62%); padding: 0 0.15em; }
+.lift { transition: transform .2s, border-color .2s, box-shadow .2s; }
+.lift:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 12px 30px -14px color-mix(in srgb, var(--accent) 45%, transparent); }
+@media (prefers-reduced-motion: reduce) { .lift, .lift:hover { transition: none; transform: none; } }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.15; }
+.ui { font-family: var(--font-display); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* One orchestrated moment: the hero fades in once on load */
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.hero-in { animation: rise 0.7s ease-out both; }
+.hero-in-2 { animation: rise 0.7s 0.15s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-in, .hero-in-2 { animation: none; }
+}
