@@ -4,6 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 // base "./" makes the build work on GitHub Pages, Netlify and Vercel without changes
 export default defineConfig({
-  base: "./Portfolio-Me",
+  base: "./Portfolio-Me/",
   plugins: [react(), tailwindcss()],
 });
