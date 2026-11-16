@@ -1,10 +1,15 @@
 export const experience = [
   {
+    title: "Front-End Web Development Internship",
+    org: "Elevvo",
+    date: "Sep 2025 to Oct 2025",
+    text: "Completed front-end development tasks from Elevvo's internship program using HTML, CSS, JavaScript and React.",
+  },
+  {
     title: "Front-end internship",
     org: "Web Master",
-    date: "",
     text: "Led the team on a grocery e-commerce store and built the React components and routing. Also built Movie Insights Platform, which fetches movie data in real time and searches as you type.",
-    date: 'Aug 2025 to Sep 2025'
+    date: "Aug 2025 to Sep 2025",
   },
   {
     title: "Web Development using React.js",
